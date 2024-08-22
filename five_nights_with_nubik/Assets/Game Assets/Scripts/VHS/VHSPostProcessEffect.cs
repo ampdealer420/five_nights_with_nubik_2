@@ -3,7 +3,7 @@ using UnityEngine.Video;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/GlitchEffect")]
-[RequireComponent(typeof(Camera))]
+[RequireComponent(typeof(CctvCamera))]
 [RequireComponent(typeof(VideoPlayer))]
 public class VHSPostProcessEffect : MonoBehaviour
 {

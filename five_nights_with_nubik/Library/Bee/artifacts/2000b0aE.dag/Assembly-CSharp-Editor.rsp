@@ -100,6 +100,7 @@
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:YG_PLUGIN_YANDEX_GAME
 -define:YG_NEWTONSOFT_FOR_AUTOLOCALIZATION
+-define:YG_TEXT_MESH_PRO
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
@@ -328,6 +329,9 @@
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.4/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll"
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.4/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Assembly-CSharp.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Core.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Editor.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Test.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ConversionSystem.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.ref.dll"
