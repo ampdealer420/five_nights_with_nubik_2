@@ -101,10 +101,13 @@
 -define:YG_PLUGIN_YANDEX_GAME
 -define:YG_NEWTONSOFT_FOR_AUTOLOCALIZATION
 -define:YG_TEXT_MESH_PRO
+-define:DOTWEEN
 -define:ROSLYN_ANALYZER_FIX
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
+-r:"Assets/Game Assets/Scripts/DOTween/DOTween.dll"
+-r:"Assets/Game Assets/Scripts/DOTween/Editor/DOTweenEditor.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"

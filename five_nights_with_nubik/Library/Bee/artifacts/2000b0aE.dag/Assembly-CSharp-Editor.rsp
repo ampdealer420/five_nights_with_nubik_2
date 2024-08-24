@@ -101,9 +101,12 @@
 -define:YG_PLUGIN_YANDEX_GAME
 -define:YG_NEWTONSOFT_FOR_AUTOLOCALIZATION
 -define:YG_TEXT_MESH_PRO
+-define:DOTWEEN
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
+-r:"Assets/Game Assets/Scripts/DOTween/DOTween.dll"
+-r:"Assets/Game Assets/Scripts/DOTween/Editor/DOTweenEditor.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -332,6 +335,7 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Core.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/NaughtyAttributes.Test.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ConversionSystem.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.AI.Navigation.ref.dll"

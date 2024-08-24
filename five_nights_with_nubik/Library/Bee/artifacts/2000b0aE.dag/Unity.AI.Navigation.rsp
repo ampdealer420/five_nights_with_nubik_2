@@ -104,9 +104,12 @@
 -define:YG_PLUGIN_YANDEX_GAME
 -define:YG_NEWTONSOFT_FOR_AUTOLOCALIZATION
 -define:YG_TEXT_MESH_PRO
+-define:DOTWEEN
 -define:NMC_CAN_ACCESS_TERRAIN
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Game Assets/Scripts/DOTween/DOTween.dll"
+-r:"Assets/Game Assets/Scripts/DOTween/Editor/DOTweenEditor.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -148,6 +151,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll"
+-r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.40f1/Editor/Data/Managed/UnityEngine/UnityEngine.PropertiesModule.dll"
