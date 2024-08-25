@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 1
-  controlID: 19687
+  controlID: 292
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 19688
+  controlID: 293
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 19689
+  controlID: 294
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -559,9 +559,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.5924985, y: -0.3026246, z: -16.469097}
+    m_Target: {x: -3.6728895, y: -2.3102694, z: -13.721585}
     speed: 2
-    m_Value: {x: 1.5924985, y: -0.3026246, z: -16.469097}
+    m_Value: {x: -3.6728895, y: -2.3102694, z: -13.721585}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -607,13 +607,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.18752265, y: -0.30066305, z: 0.060415477, w: 0.93317086}
+    m_Target: {x: -0.09202208, y: 0.9026929, z: -0.24140227, w: -0.34411114}
     speed: 2
-    m_Value: {x: 0.1876111, y: -0.29925984, z: 0.060133494, w: 0.93361104}
+    m_Value: {x: -0.09202162, y: 0.9026884, z: -0.24140106, w: -0.34410942}
   m_Size:
-    m_Target: 0.8660254
+    m_Target: 1.6726635
     speed: 2
-    m_Value: 0.8660254
+    m_Value: 1.6726635
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 19714
+  controlID: 363
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -736,7 +736,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Game Assets/Models/Steve
+    - Assets/Game Assets/Scripts/Player Camera
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -744,16 +744,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Game Assets/Models/Steve
+  - Assets/Game Assets/Scripts/Player Camera
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\Unity_Project\five_nights_with_nubik_2\five_nights_with_nubik
+  m_LastProjectPath: D:\Need\Unity_Project\five_nights_with_nubik_2\five_nights_with_nubik
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 99}
-    m_SelectedIDs: cc550100
-    m_LastClickedID: 87500
-    m_ExpandedIDs: 000000005a6500005c6500005e650000606500006265000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 147}
+    m_SelectedIDs: 62670000
+    m_LastClickedID: 26466
+    m_ExpandedIDs: 0000000006670000086700000c6700000e6700001067000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -781,7 +781,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a6500005c6500005e650000606500006265000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000006670000086700000c6700000e6700001067000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -809,7 +809,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000000000000
+    m_ExpandedInstanceIDs: c6230000000000008c640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -996,7 +996,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2efbffff5260000086600000e860000060630000a0630000a8630000
+      m_ExpandedIDs: 2efbffffdc60000052610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1114,10 +1114,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1501
+    x: 1565
     y: 73
-    width: 418
-    height: 966
+    width: 354
+    height: 926
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
