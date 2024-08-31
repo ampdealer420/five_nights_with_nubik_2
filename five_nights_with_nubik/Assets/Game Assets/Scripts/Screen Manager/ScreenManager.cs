@@ -1,16 +1,28 @@
 using UnityEngine;
+using DG.Tweening;
+using System.Collections;
 
 public class ScreenManager : MonoBehaviour
 {
     [SerializeField] private ScreenSettings[] _screens;
 
-    public void OpenScreen(string screenTag)
+    public void OpenScreen(string screenTag, bool applyEaseMove = false, float endYPosition = 0, float startYPosition = 0)
     {
-        foreach(ScreenSettings screenSettings in _screens)
+        for (int i = 0; i < _screens.Length; i++)
         {
-            if(screenSettings.Tag == screenTag)
+            if (_screens[i].Tag == screenTag)
             {
-                screenSettings.Screen.SetActive(true);
+                _screens[i].Screen.SetActive(true);
+                if (applyEaseMove == true)
+                {
+                    RectTransform rectTransform = _screens[i].GetComponent<RectTransform>();
+                    rectTransform.DOAnchorPosY(endYPosition, 1, true).SetEase(Ease.InSine).From(new Vector2(0, startYPosition));
+                }
+            }
+
+            else
+            {
+                Debug.Log($"{_screens[i].name} не подходит, проверено {i+1} из {_screens.Length} экранов");
             }
         }
     }
@@ -20,8 +32,8 @@ public class ScreenManager : MonoBehaviour
         foreach (ScreenSettings screenSettings in _screens)
         {
             if (screenSettings.Tag == screenTag)
-            {                
-                screenSettings.Screen.SetActive(false);   
+            {                               
+                screenSettings.Screen.SetActive(false);
             }
         }
     }

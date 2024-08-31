@@ -30,9 +30,9 @@ ModelImporter:
     importAnimatedCustomProperties: 0
     importConstraints: 0
     animationCompression: 1
-    animationRotationError: 20
-    animationPositionError: 20
-    animationScaleError: 20
+    animationRotationError: 29
+    animationPositionError: 29
+    animationScaleError: 29
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
@@ -70,7 +70,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 0.3
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
@@ -106,7 +106,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 2
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1

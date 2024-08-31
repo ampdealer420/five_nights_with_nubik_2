@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638601261469375111
-    m_Hash: 3835581178
+      ticks: 638606929159634140
+    m_Hash: 119763116
   m_LockFileStatus:
     m_FilePath: D:/Need/Unity_Project/five_nights_with_nubik_2/five_nights_with_nubik/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638601261469425159
-    m_Hash: 2907461155
+      ticks: 638606929159684191
+    m_Hash: 2200038892
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -116,6 +116,7 @@ m_ResolvedPackages:
     - 2.0.0-pre.4
     - 2.0.0
     - 2.0.3
+    - 2.0.4
     compatible:
     - 1.1.5
     recommended: 1.1.5
@@ -558,19 +559,19 @@ m_ResolvedPackages:
     recommended: 5.2.3
     deprecated: []
   dependencies:
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.physics
+    version: 1.0.0
   - name: com.unity.settings-manager
     version: 1.0.3
-  - name: com.unity.modules.physics
-    version: 1.0.0
+  resolvedDependencies:
   - name: com.unity.modules.imgui
     version: 1.0.0
-  resolvedDependencies:
+  - name: com.unity.modules.physics
+    version: 1.0.0
   - name: com.unity.settings-manager
     version: 2.0.1
-  - name: com.unity.modules.physics
-    version: 1.0.0
-  - name: com.unity.modules.imgui
-    version: 1.0.0
   keywords:
   - 3d
   - model
@@ -612,6 +613,90 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 5.2.2
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  fingerprint: 
+- packageId: com.unity.progrids@3.0.3-preview.6
+  testable: 0
+  isDirectDependency: 1
+  version: 3.0.3-preview.6
+  source: 1
+  resolvedPath: D:\Need\Unity_Project\five_nights_with_nubik_2\five_nights_with_nubik\Library\PackageCache\com.unity.progrids@3.0.3-preview.6
+  assetPath: Packages/com.unity.progrids
+  name: com.unity.progrids
+  displayName: ProGrids
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 'Advanced grid and object snapping for the scene view. ProGrids is
+    a dynamically placed grid, available on all 3 axes and at any position in the
+    scene.
+
+
+    ProGrids snaps objects in world space, ensuring consistent placement
+    of objects in your level.
+
+
+    In addition, ProGrids is completely customizable.
+    Change the colors of your grid, the snap sizing, unit of measurement, and more!'
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 3.0.1-preview
+    - 3.0.2-preview
+    - 3.0.3-preview.0
+    - 3.0.3-preview.4
+    - 3.0.3-preview.5
+    - 3.0.3-preview.6
+    compatible:
+    - 3.0.1-preview
+    - 3.0.2-preview
+    - 3.0.3-preview.0
+    - 3.0.3-preview.4
+    - 3.0.3-preview.5
+    - 3.0.3-preview.6
+    recommended: 
+    deprecated: []
+  dependencies:
+  - name: com.unity.settings-manager
+    version: 1.0.2
+  resolvedDependencies:
+  - name: com.unity.settings-manager
+    version: 2.0.1
+  keywords:
+  - grid
+  - snap
+  - manipulation
+  - array
+  - align
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637209307060000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: git+https://github.com/Unity-Technologies/com.unity.progrids.git
+    revision: 381f2b0b5dda11525d53e2c608284a3f68d1beff
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
@@ -687,9 +772,9 @@ m_ResolvedPackages:
   resolvedDependencies:
   - name: com.unity.timeline
     version: 1.7.6
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -1051,18 +1136,18 @@ m_ResolvedPackages:
     recommended: 1.7.6
     deprecated: []
   dependencies:
+  - name: com.unity.modules.audio
+    version: 1.0.0
   - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.particlesystem
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0

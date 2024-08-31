@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,8 @@ public class NubikEnemy : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     private Transform _waypointSelected;
+
+    public event Action OnNubikStuckedFrontDoorEvent;
 
     private void Start()
     {
@@ -72,7 +75,7 @@ public class NubikEnemy : MonoBehaviour
 
     private Transform SelectWaypoint()
     {
-        return _waypoints[Random.Range(0, _waypoints.Length)];
+        return _waypoints[UnityEngine.Random.Range(0, _waypoints.Length)];
     }
 
     private void SetDestinationToPlayer()
@@ -136,6 +139,11 @@ public class NubikEnemy : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.25f);
             }
+        }
+
+        if (_agent.pathStatus == NavMeshPathStatus.PathPartial || _agent.pathStatus == NavMeshPathStatus.PathInvalid && _agent.destination == _roomWaypoint.position)
+        {
+            OnNubikStuckedFrontDoorEvent?.Invoke();
         }
 
         yield return null;
