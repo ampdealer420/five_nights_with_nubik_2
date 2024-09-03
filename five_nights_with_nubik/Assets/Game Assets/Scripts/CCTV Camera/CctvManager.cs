@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CctvManager : MonoBehaviour
@@ -6,6 +7,8 @@ public class CctvManager : MonoBehaviour
     [SerializeField] private AudioListener _audioListenerPlayerCamera;
 
     [SerializeField] private CctvCamera[] _cameras;
+
+    public event Action<bool> OnCameraWasEnabledEvent;
 
     public void EnableCctvCamera(string cameraTag)
     {
@@ -22,6 +25,7 @@ public class CctvManager : MonoBehaviour
                 cctvCamera.CameraAudioListener.enabled = true;
             }
         }
+        OnCameraWasEnabledEvent?.Invoke(true);
     }
 
     public void DisableAllCctvCameras()
@@ -31,6 +35,7 @@ public class CctvManager : MonoBehaviour
             camera.Camera.enabled = false;
             camera.CameraAudioListener.enabled = false;
         }
+        OnCameraWasEnabledEvent?.Invoke(false);
     }
 
     public void EnablePlayerCamera()

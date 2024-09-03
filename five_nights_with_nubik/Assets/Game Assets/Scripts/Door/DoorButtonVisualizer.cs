@@ -11,14 +11,14 @@ public class DoorButtonVisualizer : MonoBehaviour
 
     private void OnEnable()
     {
-        _doorController.DoorStateChanged += SetActiveColor;
-        _doorController.DoorStateChanging += SetInactiveColor;
+        _doorController.OnDoorStateChangedEvent += (bool state) => SetActiveColor();
+        _doorController.OnDoorStateChangingEvent += SetInactiveColor;
     }
 
     private void OnDisable()
     {
-        _doorController.DoorStateChanged -= SetActiveColor;
-        _doorController.DoorStateChanging -= SetInactiveColor;
+        _doorController.OnDoorStateChangedEvent -= (bool state) => SetActiveColor();
+        _doorController.OnDoorStateChangingEvent -= SetInactiveColor;
     }
 
     private void SetInactiveColor()

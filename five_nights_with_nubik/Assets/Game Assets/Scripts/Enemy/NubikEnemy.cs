@@ -6,7 +6,9 @@ using NaughtyAttributes;
 
 public class NubikEnemy : MonoBehaviour
 {
-    [SerializeField] private float _speedMovement;
+
+    [SerializeField] private float _speedStart;
+    private float _speedMovement;
 
     [Foldout("Путь")]
     [SerializeField] private Transform[] _waypoints;
@@ -26,16 +28,17 @@ public class NubikEnemy : MonoBehaviour
     private Transform _waypointSelected;
 
     public event Action OnNubikStuckedFrontDoorEvent;
+    public event Action OnNubikCaughtPlayerEvent;
 
     private void Start()
     {
-        _agent.speed = _speedMovement;
+        Initialize(1);
         StartCoroutine(StartMove());
     }
 
-    public void SetupEnemy(float speed)
+    public void Initialize(int gameDay)
     {
-        _speedMovement = speed;
+        _speedMovement = _speedStart * gameDay;
         _agent.speed = _speedMovement;
     }
 
@@ -54,7 +57,7 @@ public class NubikEnemy : MonoBehaviour
         {
             if (true)
             {
-                Debug.Log("Dead");
+                OnNubikCaughtPlayerEvent?.Invoke();
             }
         }
     }
@@ -111,7 +114,7 @@ public class NubikEnemy : MonoBehaviour
                     new Vector3(transform.position.x, 0, transform.position.z)) <= 0.3f)
             {
                 SetIdleState();
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(1f);
                 break;
             }
 

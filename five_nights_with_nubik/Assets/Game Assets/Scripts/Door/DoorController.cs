@@ -14,8 +14,8 @@ public class DoorController : MonoBehaviour
 
     private bool _doorOpened = false;
 
-    public event Action DoorStateChanging;
-    public event Action DoorStateChanged;
+    public event Action OnDoorStateChangingEvent;
+    public event Action<bool> OnDoorStateChangedEvent;
 
     private void Start()
     {
@@ -26,24 +26,24 @@ public class DoorController : MonoBehaviour
     {
         if(_doorOpened == true)
         {
-            DoorStateChanging?.Invoke();
+            OnDoorStateChangingEvent?.Invoke();
             _door.transform.DOMove(_closedDoorTransform.position, _doorAnimationLength);
-            StartCoroutine(CallEventAfterAnimation(_doorAnimationLength));
             _doorOpened = false;
+            StartCoroutine(CallEventAfterAnimation(_doorAnimationLength));
         }
 
         else if(_doorOpened == false)
         {
-            DoorStateChanging?.Invoke();
+            OnDoorStateChangingEvent?.Invoke();
             _door.transform.DOMove(_openedDoorTransform.position, _doorAnimationLength);
-            StartCoroutine(CallEventAfterAnimation(_doorAnimationLength));
             _doorOpened = true;
+            StartCoroutine(CallEventAfterAnimation(_doorAnimationLength));
         }
     }
 
     IEnumerator CallEventAfterAnimation(float animationLength)
     {
         yield return new WaitForSeconds(animationLength);
-        DoorStateChanged?.Invoke();
+        OnDoorStateChangedEvent?.Invoke(_doorOpened);
     }
 }

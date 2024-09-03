@@ -347,6 +347,8 @@
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.ProBuilder.AssetIdRemapUtility.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.ProBuilder.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.ProBuilder.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.ProGrids.Editor.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.ProGrids.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.Recorder.Base.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.Recorder.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aEDbg.dag/Unity.Recorder.ref.dll"
