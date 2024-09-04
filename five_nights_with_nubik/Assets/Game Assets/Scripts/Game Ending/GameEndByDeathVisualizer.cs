@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameEndByDeathVisualizer : MonoBehaviour
 {
@@ -8,8 +7,10 @@ public class GameEndByDeathVisualizer : MonoBehaviour
     [SerializeField] private ScreenManager _screenManager;
 
     [SerializeField] private CctvManager _cctvManager;
-    [SerializeField] private Camera _deathCamera;
     [SerializeField] private Camera _playerCamera;
+
+    [SerializeField] private Camera _deathCamera;
+    [SerializeField] private AudioListener _deathCameraListener;
 
     [SerializeField] private AudioSource _deathSound;
     [SerializeField] private AudioClip[] _deathSoundClips;
@@ -27,17 +28,21 @@ public class GameEndByDeathVisualizer : MonoBehaviour
 
     private void EndGame()
     {
+        _screenManager.CloseAllScreens();
         _cctvManager.DisableAllCctvCameras();
         _playerCamera.enabled = false;
         _deathCamera.enabled = true;
+        _deathCameraListener.enabled = true;
 
         _deathSound.clip = _deathSoundClips[Random.Range(0, _deathSoundClips.Length)];
         _deathSound.Play();
+        StartCoroutine(OpenLoseScreen());
     }
 
     IEnumerator OpenLoseScreen()
-    {
-        yield return new WaitForSecondsRealtime(1.5f);
+    {     
+        yield return new WaitForSecondsRealtime(3f);
+        Time.timeScale = 0;
         _screenManager.OpenScreen("Lose Screen");
     }
 }

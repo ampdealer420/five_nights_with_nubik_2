@@ -9,7 +9,7 @@
         public string language = "ru";
         public bool promptDone;
 
-        public int DayOfGame;
+        public int DayOfGame = 1;
 
         public SavesYG()
         {

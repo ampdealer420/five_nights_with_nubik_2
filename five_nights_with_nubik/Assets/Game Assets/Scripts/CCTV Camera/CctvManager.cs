@@ -6,9 +6,22 @@ public class CctvManager : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
     [SerializeField] private AudioListener _audioListenerPlayerCamera;
 
+    [SerializeField] private Energy _energy;
     [SerializeField] private CctvCamera[] _cameras;
 
     public event Action<bool> OnCameraWasEnabledEvent;
+
+    private void OnEnable()
+    {
+        _energy.OnEnergyWasEqualedZero += EnablePlayerCamera;
+        _energy.OnEnergyWasEqualedZero += DisableAllCctvCameras;
+    }
+
+    private void OnDisable()
+    {
+        _energy.OnEnergyWasEqualedZero -= EnablePlayerCamera;
+        _energy.OnEnergyWasEqualedZero -= DisableAllCctvCameras;
+    }
 
     public void EnableCctvCamera(string cameraTag)
     {

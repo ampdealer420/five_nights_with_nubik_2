@@ -22,6 +22,8 @@ public class NubikEnemy : MonoBehaviour
     [Foldout("Путь")]
     [SerializeField] private Transform _playerTransform;
 
+    [SerializeField] private Energy _energy;
+
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Animator _animator;
 
@@ -30,16 +32,21 @@ public class NubikEnemy : MonoBehaviour
     public event Action OnNubikStuckedFrontDoorEvent;
     public event Action OnNubikCaughtPlayerEvent;
 
-    private void Start()
+    private void OnEnable()
     {
-        Initialize(1);
-        StartCoroutine(StartMove());
+        _energy.OnEnergyWasEqualedZero += SetDestinationToPlayer;
     }
 
-    public void Initialize(int gameDay)
+    private void OnDisable()
     {
-        _speedMovement = _speedStart * gameDay;
+        _energy.OnEnergyWasEqualedZero -= SetDestinationToPlayer;
+    }
+
+    public void Initialize(float speed)
+    {
+        _speedMovement = speed;
         _agent.speed = _speedMovement;
+        StartCoroutine(StartMove());
     }
 
     private void Update()
@@ -55,10 +62,7 @@ public class NubikEnemy : MonoBehaviour
                 new Vector3(_playerTransform.position.x, 0, _playerTransform.position.z)) <= 1.2f
            )
         {
-            if (true)
-            {
                 OnNubikCaughtPlayerEvent?.Invoke();
-            }
         }
     }
 
@@ -83,9 +87,11 @@ public class NubikEnemy : MonoBehaviour
 
     private void SetDestinationToPlayer()
     {
+        StopCoroutine(StartMove());
+        _speedMovement = 5;
         _agent.speed = 5;
-        _waypointSelected = _playerTransform;
-        _agent.SetDestination(_playerTransform.position);
+        _waypointSelected = _roomWaypoint;
+        _agent.SetDestination(_roomWaypoint.position);
     }
 
     IEnumerator StartMove()

@@ -30,13 +30,13 @@ public class GameEndHandler : MonoBehaviour
         {
             if(gameEndedByDeath == true)
             {
-                OnGameEndingByDeathEvent();
+                OnGameEndingByDeathEvent?.Invoke();
                 SaveGameData();
             }
 
             else
             {            
-                OnGameEndingByWinEvent();
+                OnGameEndingByWinEvent?.Invoke();
                 SaveGameData();
             }
             _playerIsDead = true;
