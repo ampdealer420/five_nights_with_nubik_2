@@ -7,8 +7,6 @@ public class DoorTransformChanger : MonoBehaviour
 {
     public bool DoorIsWorked { get; private set; }
 
-    [SerializeField] private Energy _energy;
-
     [SerializeField] private GameObject _door;
 
     [SerializeField] private Transform _openedDoorTransform;
@@ -21,16 +19,6 @@ public class DoorTransformChanger : MonoBehaviour
     public event Action OnDoorStateChangingEvent;
     public event Action<bool> OnDoorStateChangedEvent;
     public event Action<bool> OnDoorWorkStateChangedEvent;
-
-    private void OnEnable()
-    {
-        _energy.OnEnergyWasEqualedZero += OpenDoor;
-    }
-
-    private void OnDisable()
-    {
-        _energy.OnEnergyWasEqualedZero -= OpenDoor;
-    }
 
     private void Start()
     {
@@ -59,7 +47,7 @@ public class DoorTransformChanger : MonoBehaviour
         OnDoorWorkStateChangedEvent?.Invoke(DoorIsWorked);
     }
 
-    private void OpenDoor()
+    public void OpenDoor()
     {
         OnDoorStateChangingEvent?.Invoke();
         _door.transform.DOMove(_openedDoorTransform.position, _doorAnimationLength);

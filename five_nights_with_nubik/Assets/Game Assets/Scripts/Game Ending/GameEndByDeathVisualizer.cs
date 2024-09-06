@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class GameEndByDeathVisualizer : MonoBehaviour
     [SerializeField] private Camera _playerCamera;
 
     [SerializeField] private Camera _deathCamera;
+    [SerializeField] private Light _nubikHeadLight;
     [SerializeField] private AudioListener _deathCameraListener;
 
     [SerializeField] private AudioSource _deathSound;
@@ -32,6 +34,8 @@ public class GameEndByDeathVisualizer : MonoBehaviour
         _cctvManager.DisableAllCctvCameras();
         _playerCamera.enabled = false;
         _deathCamera.enabled = true;
+        _deathCamera.DOShakePosition(1.5f, 0.0025f, 3, 90, true, ShakeRandomnessMode.Full);
+        _nubikHeadLight.enabled = true;
         _deathCameraListener.enabled = true;
 
         _deathSound.clip = _deathSoundClips[Random.Range(0, _deathSoundClips.Length)];
@@ -43,6 +47,6 @@ public class GameEndByDeathVisualizer : MonoBehaviour
     {     
         yield return new WaitForSecondsRealtime(3f);
         Time.timeScale = 0;
-        _screenManager.OpenScreen("Lose Screen");
+        _screenManager.OpenScreen("Lose Screen", true);
     }
 }

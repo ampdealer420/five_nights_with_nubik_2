@@ -372,6 +372,7 @@
 "Assets/Game Assets/Scripts/Gamestrap/GameDayHandler.cs"
 "Assets/Game Assets/Scripts/Gamestrap/Gamestrap.cs"
 "Assets/Game Assets/Scripts/GPU Instancing/GPUInstancingEnabler.cs"
+"Assets/Game Assets/Scripts/Light/LightStateController.cs"
 "Assets/Game Assets/Scripts/Localize Texture/SpriteLocalizer.cs"
 "Assets/Game Assets/Scripts/Method Extensions/ButtonExtension.cs"
 "Assets/Game Assets/Scripts/Player Camera/CameraRotateButton.cs"

@@ -4,38 +4,48 @@ using System.Collections;
 
 public class ScreenManager : MonoBehaviour
 {
-    [SerializeField] private ScreenSettings[] _screens;
-    [SerializeField] private Energy _energy;
+    public bool CanEnableScreen = true;
 
-    private void OnEnable()
-    {
-        _energy.OnEnergyWasEqualedZero += CloseAllScreens;
-    }
-
-    private void OnDisable()
-    {
-        _energy.OnEnergyWasEqualedZero -= CloseAllScreens;
-    }
+    [SerializeField] private ScreenSettings[] _screens; 
 
     public void OpenScreen(string screenTag, bool applyEaseMove = false, float endYPosition = 0, float startYPosition = 0)
+    {
+        if(CanEnableScreen == true)
+        {
+            for (int i = 0; i < _screens.Length; i++)
+            {
+                if (_screens[i].Tag == screenTag)
+                {
+                    _screens[i].Screen.SetActive(true);
+                    if (applyEaseMove == true)
+                    {
+                        RectTransform rectTransform = _screens[i].GetComponent<RectTransform>();
+                        rectTransform.DOAnchorPosY(endYPosition, 1, true)
+                            .SetEase(Ease.InSine)
+                            .From(new Vector2(0, startYPosition));
+                    }
+                }
+
+                else
+                {
+                    Debug.Log($"{_screens[i].name} не подходит, проверено {i+1} из {_screens.Length} экранов");
+                }
+            }
+        }
+    }
+
+    public void OpenScreen(string screenTag, bool ignoreCondition)
     {
         for (int i = 0; i < _screens.Length; i++)
         {
             if (_screens[i].Tag == screenTag)
             {
                 _screens[i].Screen.SetActive(true);
-                if (applyEaseMove == true)
-                {
-                    RectTransform rectTransform = _screens[i].GetComponent<RectTransform>();
-                    rectTransform.DOAnchorPosY(endYPosition, 1, true)
-                        .SetEase(Ease.InSine)
-                        .From(new Vector2(0, startYPosition));
-                }
             }
 
             else
             {
-                Debug.Log($"{_screens[i].name} не подходит, проверено {i+1} из {_screens.Length} экранов");
+                Debug.Log($"{_screens[i].name} не подходит, проверено {i + 1} из {_screens.Length} экранов");
             }
         }
     }

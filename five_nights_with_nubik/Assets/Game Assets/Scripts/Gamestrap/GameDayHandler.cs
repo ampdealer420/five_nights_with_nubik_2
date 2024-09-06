@@ -47,7 +47,7 @@ public class GameDayHandler : MonoBehaviour
     private void OpenNewspaper(string newsPaperTag, float timeForShowNewspaper)
     {
         Time.timeScale = 0;
-        _screenManager.OpenScreen(newsPaperTag);
+        _screenManager.OpenScreen(newsPaperTag, false);
         StartCoroutine(_screenManager.CloseScreenAfterSec(newsPaperTag, timeForShowNewspaper));
         Time.timeScale = 1;
     }

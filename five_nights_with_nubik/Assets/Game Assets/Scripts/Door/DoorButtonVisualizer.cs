@@ -4,7 +4,6 @@ using UnityEngine;
 public class DoorButtonVisualizer : MonoBehaviour
 {
     [SerializeField] private DoorTransformChanger _doorController;
-    [SerializeField] private Energy _energy;
     [SerializeField] private Material _buttonMaterial;
 
     [SerializeField] private Color32 _inactiveColor;
@@ -15,7 +14,6 @@ public class DoorButtonVisualizer : MonoBehaviour
         _doorController.OnDoorStateChangedEvent += (bool state) => SetActiveColor();
         _doorController.OnDoorStateChangingEvent += SetInactiveColor;
         _doorController.OnDoorWorkStateChangedEvent += SetColorByDoorWorkState;
-        _energy.OnEnergyWasEqualedZero += SetInactiveColor;
     }
 
     private void OnDisable()
@@ -23,10 +21,9 @@ public class DoorButtonVisualizer : MonoBehaviour
         _doorController.OnDoorStateChangedEvent -= (bool state) => SetActiveColor();
         _doorController.OnDoorStateChangingEvent -= SetInactiveColor;
         _doorController.OnDoorWorkStateChangedEvent -= SetColorByDoorWorkState;
-        _energy.OnEnergyWasEqualedZero -= SetInactiveColor;
     }
 
-    private void SetInactiveColor()
+    public void SetInactiveColor()
     {
         _buttonMaterial.DOColor(_inactiveColor, 0.5f);
     }

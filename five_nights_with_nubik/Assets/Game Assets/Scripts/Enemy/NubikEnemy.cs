@@ -22,8 +22,6 @@ public class NubikEnemy : MonoBehaviour
     [Foldout("Путь")]
     [SerializeField] private Transform _playerTransform;
 
-    [SerializeField] private Energy _energy;
-
     [SerializeField] private NavMeshAgent _agent;
     [SerializeField] private Animator _animator;
 
@@ -31,16 +29,6 @@ public class NubikEnemy : MonoBehaviour
 
     public event Action OnNubikStuckedFrontDoorEvent;
     public event Action OnNubikCaughtPlayerEvent;
-
-    private void OnEnable()
-    {
-        _energy.OnEnergyWasEqualedZero += SetDestinationToPlayer;
-    }
-
-    private void OnDisable()
-    {
-        _energy.OnEnergyWasEqualedZero -= SetDestinationToPlayer;
-    }
 
     public void Initialize(float speed)
     {
@@ -51,10 +39,9 @@ public class NubikEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (_agent.pathStatus == NavMeshPathStatus.PathPartial)
+        if(_waypointSelected == _playerTransform)
         {
-            _waypointSelected = SelectWaypoint();
-            _agent.SetDestination(_waypointSelected.position);
+            SetDestinationToPlayer();
         }
 
         if (Vector3.Distance(
@@ -85,18 +72,25 @@ public class NubikEnemy : MonoBehaviour
         return _waypoints[UnityEngine.Random.Range(0, _waypoints.Length)];
     }
 
-    private void SetDestinationToPlayer()
+    public void SetDestinationToPlayer()
     {
         StopCoroutine(StartMove());
         _speedMovement = 5;
         _agent.speed = 5;
-        _waypointSelected = _roomWaypoint;
-        _agent.SetDestination(_roomWaypoint.position);
+        _waypointSelected = _playerTransform;
+        _agent.SetDestination(_playerTransform.position);
     }
+
 
     IEnumerator StartMove()
     {
         if (_waypointSelected != _roomWaypoint)
+        {
+            _waypointSelected = SelectWaypoint();
+            _agent.SetDestination(_waypointSelected.position);
+        }
+
+        if (_agent.pathStatus == NavMeshPathStatus.PathPartial)
         {
             _waypointSelected = SelectWaypoint();
             _agent.SetDestination(_waypointSelected.position);
