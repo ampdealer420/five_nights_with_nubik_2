@@ -1,10 +1,15 @@
-using System;
 using UnityEngine;
 
 public class GameDayHandler : MonoBehaviour
 {
     [SerializeField] private NubikEnemy _nubikEnemy;
+
     [SerializeField] private Energy _energy;
+    [SerializeField] private EnergyPercentHandler _energyPercentHandler;
+    [SerializeField] private EnergyBroke _energyBroke;
+
+    [SerializeField] private DoorWorkStateController _doorWorkStateController;
+
     [SerializeField] private ScreenManager _screenManager;
 
     [SerializeField] private GameDayData[] _gameDayDatas;
@@ -41,7 +46,15 @@ public class GameDayHandler : MonoBehaviour
             OpenNewspaper(dayData.NewspaperTagScreen, dayData.TimeForNewspaperShow);
 
         _nubikEnemy.Initialize(dayData.NubikSpeed);
+        _doorWorkStateController.Initialize(dayData.TimeToRepairDoorButton, dayData.MinTimeToBrokeDoor, dayData.MaxTimeToBrokeDoor);
+
+        _energyPercentHandler.Initialize(dayData.TimeToRepairEnergyBatteryText);
         _energy.Initialize(dayData.EnergyDoorDecreaser, dayData.EnergyCameraDecreaser);
+        _energyBroke.Initialize(
+            _energyPercentHandler, 
+            dayData.MinTimeToBrokeBattery, 
+            dayData.MaxTimeToBrokeBattery
+        );
     }
 
     private void OpenNewspaper(string newsPaperTag, float timeForShowNewspaper)

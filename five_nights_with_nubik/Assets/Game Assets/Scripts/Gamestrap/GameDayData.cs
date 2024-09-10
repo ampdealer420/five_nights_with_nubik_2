@@ -11,4 +11,12 @@ public class GameDayData : ScriptableObject
     public float EnergyDoorDecreaser;
     public float EnergyCameraDecreaser;
 
+    public float MinTimeToBrokeBattery;
+    public float MaxTimeToBrokeBattery;
+
+    public float MinTimeToBrokeDoor;
+    public float MaxTimeToBrokeDoor;
+
+    public float TimeToRepairEnergyBatteryText;
+    public float TimeToRepairDoorButton;
 }
