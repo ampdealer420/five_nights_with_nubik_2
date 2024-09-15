@@ -3,12 +3,10 @@ using UnityEngine.Video;
 
 [ExecuteInEditMode]
 [AddComponentMenu("Image Effects/GlitchEffect")]
-[RequireComponent(typeof(CctvCamera))]
 [RequireComponent(typeof(VideoPlayer))]
 public class VHSPostProcessEffect : MonoBehaviour
 {
 	public Shader shader;
-	public VideoClip VHSClip;
 
 	private float _yScanline;
 	private float _xScanline;
@@ -24,10 +22,8 @@ public class VHSPostProcessEffect : MonoBehaviour
 		_player.url = filePath;
 		_player.isLooping = true;
 		_player.waitForFirstFrame = false;
-		_player.playOnAwake = false;
 		_player.renderMode = VideoRenderMode.APIOnly;
 		_player.audioOutputMode = VideoAudioOutputMode.None;
-		_player.clip = VHSClip;
 		_player.Play();
 	}
 

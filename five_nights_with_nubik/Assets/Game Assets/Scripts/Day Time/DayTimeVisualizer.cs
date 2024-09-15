@@ -17,12 +17,12 @@ public class DayTimeVisualizer : MonoBehaviour
     {
         if (_language == "ru")
         {
-            _hourText.text = $"×àñ: {hour}";
+            _hourText.text = hour.ToString("0:'00");
         }
 
         else if(_language == "en")
         {
-            _hourText.text = $"Hour: {hour}";
+            _hourText.text = hour.ToString("0:'00");
         }
     }
 }

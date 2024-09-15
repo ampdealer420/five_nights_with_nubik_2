@@ -37,6 +37,7 @@ public class GameEndHandler : MonoBehaviour
             else
             {            
                 OnGameEndingByWinEvent?.Invoke();
+                YandexGame.savesData.DayOfGame += 1;
                 SaveGameData();
             }
             _playerIsDead = true;

@@ -9,10 +9,13 @@ public class DoorButtonVisualizer : MonoBehaviour
     [SerializeField] private Color32 _inactiveColor;
     [SerializeField] private Color32 _activeColor;
 
+    [SerializeField] private AudioSource _doorSound;
+
     private void OnEnable()
     {
         _doorController.OnDoorStateChangedEvent += (bool state) => SetActiveColor();
         _doorController.OnDoorStateChangingEvent += SetInactiveColor;
+        _doorController.OnDoorStateChangingEvent += PlayDoorSound;
         _doorController.OnDoorWorkStateChangedEvent += SetColorByDoorWorkState;
     }
 
@@ -20,6 +23,7 @@ public class DoorButtonVisualizer : MonoBehaviour
     {
         _doorController.OnDoorStateChangedEvent -= (bool state) => SetActiveColor();
         _doorController.OnDoorStateChangingEvent -= SetInactiveColor;
+        _doorController.OnDoorStateChangingEvent -= PlayDoorSound;
         _doorController.OnDoorWorkStateChangedEvent -= SetColorByDoorWorkState;
     }
 
@@ -39,5 +43,10 @@ public class DoorButtonVisualizer : MonoBehaviour
             SetActiveColor();
         else
             SetInactiveColor();
+    }
+
+    private void PlayDoorSound()
+    {
+        _doorSound.Play();
     }
 }

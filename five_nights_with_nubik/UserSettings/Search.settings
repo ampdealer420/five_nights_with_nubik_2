@@ -60,6 +60,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"h: t:DoorRepiarButton"
 ]
 searchItemFavorites = [
 ]

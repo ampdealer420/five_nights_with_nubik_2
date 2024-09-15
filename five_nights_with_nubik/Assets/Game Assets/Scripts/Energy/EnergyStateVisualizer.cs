@@ -4,7 +4,7 @@ using YG;
 
 public class EnergyStateVisualizer : MonoBehaviour
 {
-    [SerializeField] private EnergyPercentHandler _energyPercentHandler;
+    [SerializeField] private BatteryViewHandler _energyPercentHandler;
 
     [SerializeField] private TMP_Text _repairButtonText;
 
@@ -16,18 +16,19 @@ public class EnergyStateVisualizer : MonoBehaviour
     private void Start()
     {
         _startColor = _repairButtonText.color;
+        UpdateUI(true);
     }
 
     private void OnEnable()
     {
-        _energyPercentHandler.OnEnergyPercentShowStateChanged += UpdateUI;
-        _energyPercentHandler.OnEnergyPercentShowStateChanging += UpdateUIOnRepair;
+        _energyPercentHandler.OnBatteryPercentShowStateChanged += UpdateUI;
+        _energyPercentHandler.OnBatteryPercentShowStateChanging += UpdateUIOnRepair;
     }
 
     private void OnDisable()
     {
-        _energyPercentHandler.OnEnergyPercentShowStateChanged -= UpdateUI;
-        _energyPercentHandler.OnEnergyPercentShowStateChanging -= UpdateUIOnRepair;
+        _energyPercentHandler.OnBatteryPercentShowStateChanged -= UpdateUI;
+        _energyPercentHandler.OnBatteryPercentShowStateChanging -= UpdateUIOnRepair;
     }
 
     private void UpdateUIOnRepair()
@@ -35,7 +36,7 @@ public class EnergyStateVisualizer : MonoBehaviour
         _repairButtonText.color = _brokeColor;
         if (_language == "ru")
         {
-            _repairButtonText.text = "Чиним батарею...";
+            _repairButtonText.text = "Р§РёРЅРёРј Р±Р°С‚Р°СЂРµСЋ...";
         }
 
         else
@@ -51,7 +52,7 @@ public class EnergyStateVisualizer : MonoBehaviour
             _repairButtonText.color = _startColor;
             if (_language == "ru")
             {
-                _repairButtonText.text = "Батарея работает";
+                _repairButtonText.text = "Р‘Р°С‚Р°СЂРµСЏ СЂР°Р±РѕС‚Р°РµС‚";
             }
 
             else
@@ -65,7 +66,7 @@ public class EnergyStateVisualizer : MonoBehaviour
             _repairButtonText.color = _brokeColor;
             if (_language == "ru")
             {
-                _repairButtonText.text = "Батарея сломана";
+                _repairButtonText.text = "Р‘Р°С‚Р°СЂРµСЏ СЃР»РѕРјР°РЅР°";
             }
 
             else

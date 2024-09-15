@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class EnergyRepairButton : MonoBehaviour
 {
-    [SerializeField] private EnergyPercentHandler _energyPercentHandler;
+    [SerializeField] private BatteryViewHandler _energyPercentHandler;
 
     [SerializeField] private Button _repairButton;
 
@@ -19,6 +19,6 @@ public class EnergyRepairButton : MonoBehaviour
 
     private void RepairButton()
     {
-        StartCoroutine(_energyPercentHandler.RepairBatteryText());
+        StartCoroutine(_energyPercentHandler.RepairBatteryVisuals());
     }
 }

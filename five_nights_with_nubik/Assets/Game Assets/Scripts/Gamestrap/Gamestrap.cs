@@ -5,8 +5,11 @@ using YG;
 
 public class Gamestrap : MonoBehaviour
 {
+    private bool _isCustomNight;
     private int _dayOfGame => YandexGame.savesData.DayOfGame;
     private GameDayHandler _gameDayHandler;
+
+    private int _customNightValue;
 
     [Scene]
     [SerializeField] private string _gameScene;
@@ -26,13 +29,27 @@ public class Gamestrap : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetCustomDayParam(int day)
+    {
+        _customNightValue = day;
+        _isCustomNight = true;
+    }
+
+    public void SetToClassicGame()
+    {
+        _isCustomNight = false;
+    }
+
     private void OnGameSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
         if(scene.name == _gameScene)
         {
             Debug.Log("Scene Changed to: " + scene.name);
             _gameDayHandler = FindAnyObjectByType<GameDayHandler>();
-            _gameDayHandler.Initialize(_dayOfGame);
+            if(_isCustomNight == false)
+                _gameDayHandler.Initialize(_dayOfGame);
+            else
+                _gameDayHandler.Initialize(_customNightValue);
         }
     }
 }

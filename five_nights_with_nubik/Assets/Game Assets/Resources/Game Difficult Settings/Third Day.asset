@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4916c7767d32853449dc05c8237f8e7b, type: 3}
+  m_Name: Third Day
+  m_EditorClassIdentifier: 
+  NewspaperTagScreen: 
+  TimeForNewspaperShow: 0
+  NubikSpeed: 2
+  EnergyDoorDecreaser: 0.4
+  EnergyCameraDecreaser: 0.175
+  MinTimeToBrokeBattery: 40
+  MaxTimeToBrokeBattery: 80
+  MinTimeToBrokeDoor: 40
+  MaxTimeToBrokeDoor: 80
+  TimeToRepairEnergyBatteryText: 3
+  TimeToRepairDoorButton: 3

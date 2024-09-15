@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class EnergyBroke : MonoBehaviour
 {
-    private EnergyPercentHandler _energyPercentHandler;
+    private BatteryViewHandler _energyPercentHandler;
 
     private float _minTimeToBroke;
     private float _maxTimeToBroke;
 
     private float _nextTimeToBroke;
 
-    public void Initialize(EnergyPercentHandler energyPercentHandler, float minTimeToBroke, float maxTimeToBroke)
+    public void Initialize(BatteryViewHandler energyPercentHandler, float minTimeToBroke, float maxTimeToBroke)
     {
         _energyPercentHandler = energyPercentHandler;
 
@@ -23,7 +23,7 @@ public class EnergyBroke : MonoBehaviour
     {
         if(Time.time >= _nextTimeToBroke)
         {
-            _energyPercentHandler.BrokeBatteryText();
+            _energyPercentHandler.HideBatteryVisuals();
             _nextTimeToBroke = Time.time + GetTimeToBroke();
         }
     }

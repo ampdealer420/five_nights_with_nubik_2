@@ -2,40 +2,41 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class EnergyVisualizer : MonoBehaviour
+public class EnergyCountVisualizer : MonoBehaviour
 {
     [SerializeField] private Energy _energy;
-    [SerializeField] private EnergyPercentHandler _energyPercentHandler;
+    [SerializeField] private BatteryViewHandler _energyPercentHandler;
 
-    [SerializeField] private Image _batteryImage;
-    [SerializeField] private TMP_Text _batteryText;
+    [SerializeField] private Image _batteryPercentImage;
+    [SerializeField] private TMP_Text _batteryPercentText;
 
     private void OnEnable()
     {
-        _energy.OnEnergyValueChanged += UpdateBatteryImage;
-        _energy.OnEnergyValueChanged += UpdateBatteryText;
-        _energyPercentHandler.OnEnergyPercentShowStateChanged += ChangeVisibleStateOfText;
+        _energy.OnEnergyValueChanged += UpdateBatteryPercentImage;
+        _energy.OnEnergyValueChanged += UpdateBatterytPercentText;
+        _energyPercentHandler.OnBatteryPercentShowStateChanged += ChangeBatteryVisualsState;
     }
 
     private void OnDisable()
     {
-        _energy.OnEnergyValueChanged -= UpdateBatteryImage;
-        _energy.OnEnergyValueChanged -= UpdateBatteryText;
-        _energyPercentHandler.OnEnergyPercentShowStateChanged -= ChangeVisibleStateOfText;
+        _energy.OnEnergyValueChanged -= UpdateBatteryPercentImage;
+        _energy.OnEnergyValueChanged -= UpdateBatterytPercentText;
+        _energyPercentHandler.OnBatteryPercentShowStateChanged -= ChangeBatteryVisualsState;
     }
 
-    private void UpdateBatteryImage(float energy)
+    private void UpdateBatteryPercentImage(float energy)
     {
-        _batteryImage.fillAmount = energy / 100;
+        _batteryPercentImage.fillAmount = energy / 100;
     }
 
-    private void UpdateBatteryText(float energy)
+    private void UpdateBatterytPercentText(float energy)
     {
-        _batteryText.text = $"{Mathf.RoundToInt(energy)}%";
+        _batteryPercentText.text = $"{Mathf.RoundToInt(energy)}%";
     }
 
-    private void ChangeVisibleStateOfText(bool isVisible)
+    private void ChangeBatteryVisualsState(bool isVisible)
     {
-        _batteryText.enabled = isVisible;
+        _batteryPercentText.enabled = isVisible;
+        _batteryPercentImage.enabled = isVisible;
     }
 }

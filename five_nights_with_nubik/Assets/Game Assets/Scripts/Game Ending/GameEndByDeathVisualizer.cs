@@ -46,6 +46,7 @@ public class GameEndByDeathVisualizer : MonoBehaviour
     IEnumerator OpenLoseScreen()
     {     
         yield return new WaitForSecondsRealtime(3f);
+        _deathSound.Stop();
         Time.timeScale = 0;
         _screenManager.OpenScreen("Lose Screen", true);
     }

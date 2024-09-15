@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4916c7767d32853449dc05c8237f8e7b, type: 3}
-  m_Name: Dev Day
+  m_Name: First Day
   m_EditorClassIdentifier: 
-  NewspaperTagScreen: 
-  TimeForNewspaperShow: 0
-  NubikSpeed: 1.5
-  EnergyDoorDecreaser: 3
-  EnergyCameraDecreaser: 3
-  MinTimeToBrokeBattery: 25
-  MaxTimeToBrokeBattery: 25
-  MinTimeToBrokeDoor: 25
-  MaxTimeToBrokeDoor: 25
-  TimeToRepairEnergyBatteryText: 2
-  TimeToRepairDoorButton: 2
+  NewspaperTagScreen: Start Newspaper
+  TimeForNewspaperShow: 3
+  NubikSpeed: 0
+  EnergyDoorDecreaser: 0.2
+  EnergyCameraDecreaser: 0.1
+  MinTimeToBrokeBattery: 60
+  MaxTimeToBrokeBattery: 180
+  MinTimeToBrokeDoor: 60
+  MaxTimeToBrokeDoor: 180
+  TimeToRepairEnergyBatteryText: 1.5
+  TimeToRepairDoorButton: 1.5

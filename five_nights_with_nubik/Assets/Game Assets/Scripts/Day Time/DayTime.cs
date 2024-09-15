@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using YG;
 
 public class DayTime : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class DayTime : MonoBehaviour
     private int _secondsPassed;
     private int _hoursPassed;
 
-    private int _timerRepeatEveryTime => Mathf.RoundToInt(1 * Time.deltaTime);
+    private int _timerRepeatEveryTime = 1;
 
     public event Action<int> OnHourChangedEvent;
     public event Action OnGameEndHourNowEvent;
@@ -20,7 +18,7 @@ public class DayTime : MonoBehaviour
     private void Start()
     {
         OnHourChangedEvent?.Invoke(_hoursPassed);
-        InvokeRepeating("IncrementGameTime", 0, 1);
+        InvokeRepeating("IncrementGameTime", 0, _timerRepeatEveryTime);
     }
 
     private void Update()
@@ -31,7 +29,6 @@ public class DayTime : MonoBehaviour
             OnHourChangedEvent?.Invoke(_hoursPassed);
             if(_hoursPassed == EndGameHour)
             {
-                YandexGame.savesData.DayOfGame += Mathf.RoundToInt(1 * Time.deltaTime);
                 OnGameEndHourNowEvent?.Invoke();
             }
         }

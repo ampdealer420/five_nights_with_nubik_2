@@ -2,31 +2,31 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class EnergyPercentHandler : MonoBehaviour
+public class BatteryViewHandler : MonoBehaviour
 {
-    private bool _percentIsShowing;
+    private bool _batteryVisualsIsShowing;
 
     private float _timeToRepair;
 
-    public event Action<bool> OnEnergyPercentShowStateChanged;
-    public event Action OnEnergyPercentShowStateChanging;
+    public event Action<bool> OnBatteryPercentShowStateChanged;
+    public event Action OnBatteryPercentShowStateChanging;
 
     public void Initialize(float timeToRepair)
     {
         _timeToRepair = timeToRepair;
     }
 
-    public void BrokeBatteryText()
+    public void HideBatteryVisuals()
     {
-        _percentIsShowing = false;
-        OnEnergyPercentShowStateChanged?.Invoke(false);
+        _batteryVisualsIsShowing = false;
+        OnBatteryPercentShowStateChanged?.Invoke(_batteryVisualsIsShowing);
     }
 
-    public IEnumerator RepairBatteryText()
+    public IEnumerator RepairBatteryVisuals()
     {
-        OnEnergyPercentShowStateChanging?.Invoke();
+        OnBatteryPercentShowStateChanging?.Invoke();
         yield return new WaitForSeconds(_timeToRepair);
-        OnEnergyPercentShowStateChanged?.Invoke(true);
-        _percentIsShowing = true;
+        _batteryVisualsIsShowing = true;
+        OnBatteryPercentShowStateChanged?.Invoke(_batteryVisualsIsShowing);
     }
 }

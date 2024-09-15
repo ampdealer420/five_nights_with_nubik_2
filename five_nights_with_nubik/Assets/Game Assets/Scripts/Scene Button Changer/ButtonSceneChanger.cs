@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using NaughtyAttributes;
 using UnityEngine.UI;
+using YG;
 
 public class ButtonSceneChanger : MonoBehaviour
 {
@@ -14,5 +15,9 @@ public class ButtonSceneChanger : MonoBehaviour
 
     private void OnDisable() => _uiButton.RemoveEvent(ChangeScene);
 
-    private void ChangeScene() => SceneManager.LoadScene(_sceneName);
+    private void ChangeScene()
+    {
+        SceneManager.LoadScene(_sceneName);
+        YandexGame.FullscreenShow();
+    }
 }

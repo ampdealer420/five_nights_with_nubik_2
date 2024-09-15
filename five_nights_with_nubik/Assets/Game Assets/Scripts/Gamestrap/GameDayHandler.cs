@@ -5,7 +5,7 @@ public class GameDayHandler : MonoBehaviour
     [SerializeField] private NubikEnemy _nubikEnemy;
 
     [SerializeField] private Energy _energy;
-    [SerializeField] private EnergyPercentHandler _energyPercentHandler;
+    [SerializeField] private BatteryViewHandler _energyPercentHandler;
     [SerializeField] private EnergyBroke _energyBroke;
 
     [SerializeField] private DoorWorkStateController _doorWorkStateController;

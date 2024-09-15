@@ -6,6 +6,8 @@ public class GameEndByWinVisualizer : MonoBehaviour
 
     [SerializeField] private ScreenManager _screenManager;
 
+    [SerializeField] private AudioSource _winSound;
+
     private void OnEnable()
     {
         _gameEndHandler.OnGameEndingByWinEvent += EndGame;
@@ -19,5 +21,6 @@ public class GameEndByWinVisualizer : MonoBehaviour
     private void EndGame()
     {
         _screenManager.OpenScreen("Win Screen");
+        _winSound.Play();
     }
 }

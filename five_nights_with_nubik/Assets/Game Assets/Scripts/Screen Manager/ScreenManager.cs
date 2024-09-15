@@ -28,7 +28,7 @@ public class ScreenManager : MonoBehaviour
 
                 else
                 {
-                    Debug.Log($"{_screens[i].name} не подходит, проверено {i+1} из {_screens.Length} экранов");
+                    Debug.Log($"{_screens[i].name} РЅРµ РїРѕРґС…РѕРґРёС‚, РїСЂРѕРІРµСЂРµРЅРѕ {i+1} РёР· {_screens.Length} СЌРєСЂР°РЅРѕРІ");
                 }
             }
         }
@@ -45,7 +45,7 @@ public class ScreenManager : MonoBehaviour
 
             else
             {
-                Debug.Log($"{_screens[i].name} не подходит, проверено {i + 1} из {_screens.Length} экранов");
+                Debug.Log($"{_screens[i].name} РЅРµ РїРѕРґС…РѕРґРёС‚, РїСЂРѕРІРµСЂРµРЅРѕ {i+1} РёР· {_screens.Length} СЌРєСЂР°РЅРѕРІ");
             }
         }
     }
@@ -65,6 +65,14 @@ public class ScreenManager : MonoBehaviour
     {
         foreach(ScreenSettings screenSettings in _screens)
             screenSettings.Screen.SetActive(false);
+    }
+
+    public bool GetScreenViewState(string screenTag)
+    {
+        foreach(ScreenSettings screenSettings in _screens)
+            if(screenSettings.Tag == screenTag)
+                return screenSettings.Screen.activeInHierarchy;
+        return false;
     }
 
     public IEnumerator CloseScreenAfterSec(string screenTag, float sec)

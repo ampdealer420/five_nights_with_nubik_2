@@ -16,6 +16,7 @@ public class DoorRepairVisualizer : MonoBehaviour
     private void Start()
     {
         _startTextColor = _batteryRepairText.color;
+        ChangeTextOnRepaired(true);
     }
 
     private void OnEnable()
@@ -35,7 +36,7 @@ public class DoorRepairVisualizer : MonoBehaviour
         _batteryRepairText.color = _repairTextColor;
         if (_language == "ru")
         {
-            _batteryRepairText.text = $"Чиним дверь...";
+            _batteryRepairText.text = $"Р§РёРЅРёРј РґРІРµСЂСЊ...";
         }
         else
         {
@@ -50,7 +51,7 @@ public class DoorRepairVisualizer : MonoBehaviour
             _batteryRepairText.color = _startTextColor;
             if (_language == "ru")
             {
-                _batteryRepairText.text = $"Дверь работает";
+                _batteryRepairText.text = $"Р”РІРµСЂСЊ СЂР°Р±РѕС‚Р°РµС‚";
             }
             else
             {
@@ -63,7 +64,7 @@ public class DoorRepairVisualizer : MonoBehaviour
             _batteryRepairText.color = _repairTextColor;
             if (_language == "ru")
             {
-                _batteryRepairText.text = $"Дверь сломана";
+                _batteryRepairText.text = $"Р”РІРµСЂСЊ СЃР»РѕРјР°РЅР°";
             }
             else
             {
