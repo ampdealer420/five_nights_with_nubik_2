@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4916c7767d32853449dc05c8237f8e7b, type: 3}
   m_Name: Third Day
   m_EditorClassIdentifier: 
-  NewspaperTagScreen: 
-  TimeForNewspaperShow: 0
+  NewspaperTagScreen: Third Newspaper
+  TimeForNewspaperShow: 2
   NubikSpeed: 2
   EnergyDoorDecreaser: 0.4
   EnergyCameraDecreaser: 0.175

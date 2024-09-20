@@ -10,16 +10,16 @@ public class NubikEnemy : MonoBehaviour
     [SerializeField] private float _speedStart;
     private float _speedMovement;
 
-    [Foldout("Путь")]
+    [Foldout("пїЅпїЅпїЅпїЅ")]
     [SerializeField] private Transform[] _waypoints;
 
-    [Foldout("Путь")]
+    [Foldout("пїЅпїЅпїЅпїЅ")]
     [SerializeField] private Transform _roomWaypoint;
 
-    [Foldout("Путь")]
+    [Foldout("пїЅпїЅпїЅпїЅ")]
     [SerializeField] private Transform _doorWaypoint;
 
-    [Foldout("Путь")]
+    [Foldout("пїЅпїЅпїЅпїЅ")]
     [SerializeField] private Transform _playerTransform;
 
     [SerializeField] private NavMeshAgent _agent;
@@ -90,7 +90,7 @@ public class NubikEnemy : MonoBehaviour
             _agent.SetDestination(_waypointSelected.position);
         }
 
-        if (_agent.pathStatus == NavMeshPathStatus.PathPartial)
+        if (_agent.pathStatus == NavMeshPathStatus.PathPartial || _agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
             _waypointSelected = SelectWaypoint();
             _agent.SetDestination(_waypointSelected.position);

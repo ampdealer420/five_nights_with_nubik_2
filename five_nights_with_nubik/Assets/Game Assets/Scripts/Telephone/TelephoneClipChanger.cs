@@ -1,13 +1,18 @@
 using UnityEngine;
-using YG;
 
-public class TelephoneClipChanger : MonoBehaviour
+public class TelephoneClipPlayer : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip[] _telephoneClips;
 
-    private void Start()
+    public void Initialize(int dayCount)
     {
-        _audioSource.clip = _telephoneClips[YandexGame.savesData.DayOfGame];
+        if(_telephoneClips[dayCount - 1] != null)
+        {
+            _audioSource.clip = _telephoneClips[dayCount - 1];
+            _audioSource.Play();
+        }
+        else
+            Debug.Log("That day not contain telephone guy");
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NewspaperTagScreen: Start Newspaper
   TimeForNewspaperShow: 3
-  NubikSpeed: 0
+  NubikSpeed: 1
   EnergyDoorDecreaser: 0.2
   EnergyCameraDecreaser: 0.1
   MinTimeToBrokeBattery: 60
