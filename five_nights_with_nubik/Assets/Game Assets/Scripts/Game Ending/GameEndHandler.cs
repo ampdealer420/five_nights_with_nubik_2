@@ -39,6 +39,7 @@ public class GameEndHandler : MonoBehaviour
                 OnGameEndingByWinEvent?.Invoke();
                 YandexGame.savesData.DayOfGame += 1;
                 SaveGameData();
+                Destroy(_nubikEnemy);
             }
             _playerIsDead = true;
         }

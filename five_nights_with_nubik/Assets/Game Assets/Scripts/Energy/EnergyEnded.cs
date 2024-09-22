@@ -4,6 +4,8 @@ public class EnergyEnded : MonoBehaviour
 {
     [SerializeField] private Energy _energy;
 
+    [SerializeField] private ReactorRepairState _reactorRepairState;
+
     [SerializeField] private LightStateController _lightStateController;
     [SerializeField] private NubikEnemy _nubikEnemy;
     [SerializeField] private ScreenManager _screenManager;
@@ -14,11 +16,13 @@ public class EnergyEnded : MonoBehaviour
     private void OnEnable()
     {
         _energy.OnEnergyWasEqualedZero += SetObjectToZeroEnrgyState;
+        _reactorRepairState.OnReactorStoppedEvent += SetObjectToZeroEnrgyState;
     }
 
     private void OnDisable()
     {
         _energy.OnEnergyWasEqualedZero -= SetObjectToZeroEnrgyState;
+        _reactorRepairState.OnReactorStoppedEvent -= SetObjectToZeroEnrgyState;
     }
 
     private void SetObjectToZeroEnrgyState()

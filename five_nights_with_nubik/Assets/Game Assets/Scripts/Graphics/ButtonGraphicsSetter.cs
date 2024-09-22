@@ -9,12 +9,12 @@ public class ButtonGraphicsSetter : MonoBehaviour
 
     private void OnEnable()
     {
-        _graphicsSetButton.onClick.AddListener(SetGraphics);
+        _graphicsSetButton.AddEvent(SetGraphics);
     }
 
     private void OnDisable()
     {
-        _graphicsSetButton.onClick.RemoveListener(SetGraphics);
+        _graphicsSetButton.RemoveEvent(SetGraphics);
     }
 
     private void SetGraphics()

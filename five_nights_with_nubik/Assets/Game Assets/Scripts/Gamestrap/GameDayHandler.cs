@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameDayHandler : MonoBehaviour
@@ -17,27 +18,7 @@ public class GameDayHandler : MonoBehaviour
 
     public void Initialize(int dayTime)
     {
-        switch (dayTime)
-        {
-            case 1:
-                SetDayData(1);
-                break;
-            case 2:
-                SetDayData(2);
-                break;
-            case 3:
-                SetDayData(3);
-                break;
-            case 4:
-                SetDayData(4);
-                break;
-            case 5:
-                SetDayData(5);
-                break;
-            case 6:
-                SetDayData(6);
-                break;
-        }
+        SetDayData(dayTime);
     }
 
     private void SetDayData(int dayCount)
@@ -66,7 +47,12 @@ public class GameDayHandler : MonoBehaviour
         Time.timeScale = 0;
         _screenManager.OpenScreen(newsPaperTag, false);
         StartCoroutine(_screenManager.CloseScreenAfterSec(newsPaperTag, timeForShowNewspaper));
-        Time.timeScale = 1;
+        StartCoroutine(ReturnTimeScaleInNormal(timeForShowNewspaper));
     }
 
+    IEnumerator ReturnTimeScaleInNormal(float secAfterReturn)
+    {
+        yield return new WaitForSecondsRealtime(secAfterReturn);
+        Time.timeScale = 1;
+    }
 }

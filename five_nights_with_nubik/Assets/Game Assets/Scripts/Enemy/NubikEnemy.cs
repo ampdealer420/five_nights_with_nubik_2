@@ -51,6 +51,12 @@ public class NubikEnemy : MonoBehaviour
         {
                 OnNubikCaughtPlayerEvent?.Invoke();
         }
+
+        if (_agent.pathStatus == NavMeshPathStatus.PathPartial || _agent.pathStatus == NavMeshPathStatus.PathInvalid)
+        {
+            _waypointSelected = SelectWaypoint();
+            _agent.SetDestination(_waypointSelected.position);
+        }
     }
 
     private void SetIdleState()
